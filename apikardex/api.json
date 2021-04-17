@@ -1,0 +1,34 @@
+{
+  "productos": [
+    {
+      "id": 1,
+      "nombre": "Mug Marvel",
+      "descripcion": "Vaso  tipo mug en porcelana con motivo de MARVEL",
+      "img": "",
+      "precio": 20000,
+      "inventario": 5,
+      "vendidos": 2,
+      "disponibles": 3
+    },
+    {
+      "id": 2,
+      "nombre": "Mochila DC Comics",
+      "descripcion": "Mochila School Bag con motivo DC Comics",
+      "img": "",
+      "precio": 80000,
+      "inventario": 7,
+      "vendidos": 5,
+      "disponibles": 2
+    },
+    {
+      "id": 3,
+      "nombre": "Camiseta Capitan America",
+      "descripcion": "Camiseta Capitan America Talla unica de colección",
+      "img": "",
+      "precio": 50000,
+      "inventario": 10,
+      "vendidos": 10,
+      "disponibles": 0
+    }
+  ]
+}
