@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     public messageService: MessageService
   ) {
     this.initForm();
-    this.getStatus();
+    //this.getStatus();
   }
 
   getStatus() {
@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
     this.loginForm.updateValueAndValidity();
     if (this.loginForm.valid) {
       this.onsubmit.emit({
-        user: this.loginForm.value.user,
+        email: this.loginForm.value.user,
         password: this.loginForm.value.password,
       } as Auth);
     }

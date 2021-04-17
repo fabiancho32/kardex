@@ -16,12 +16,12 @@ export class AuthService {
   });
 
   loginUser(usuario: Auth): Observable<any> {
-    const { user, password } = usuario;
-    const url_login = '/api/login';
+    const { email, password } = usuario;
+    const url_login = '/login';
     return this.http
       .post<Auth>(
         url_login,
-        { user, password },
+        { email, password },
         { headers: this.headers, withCredentials: true }
       )
       .pipe(map((data) => data));

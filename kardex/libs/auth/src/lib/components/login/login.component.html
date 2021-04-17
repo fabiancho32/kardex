@@ -1,31 +1,42 @@
 <p-toast></p-toast>
 
 <form [formGroup]="loginForm">
-    <div class="login-body">
-        <div class="login-panel p-fluid">
-            <div class="p-grid p-nogutter">
-                <div class="p-col-12 login-header">
-                    <h1>Inicio de Sesión</h1>
-                    <h2>Bienvenido a kardex</h2>
-                    <img src="assets/img/icono_blanco.png">
-                </div>
-
-                <div class="p-col-12">
-                    <span class="p-float-label">
-                        <input type="text" pInputText formControlName="user" >
-                        <label>Usuario</label>
-                    </span>
-                </div>
-                <div class="p-col-12">
-                    <span class="p-float-label">
-                        <input type="password" pPassword [feedback]="false" formControlName="password">
-                        <label>Contraseña</label>
-                    </span>
-                </div>
-                <div class="p-col-12 button-container">
-                    <button pButton type="button" label="Entrar" icon="pi pi-user" (click)="onLogin()"></button>
-                </div>
-            </div>
+  <div class="login-body">
+    <div class="login-panel p-fluid">
+      <div class="p-grid p-nogutter">
+        <div class="p-col-12 login-header">
+          <h1>Inicio de Sesión</h1>
+          <h2>Bienvenido a DC/MARVEL</h2>
+          <img src="assets/img/icono_blanco.png" />
         </div>
+
+        <div class="p-col-12">
+          <span class="p-float-label">
+            <input type="text" pInputText formControlName="user" />
+            <label>Usuario</label>
+          </span>
+        </div>
+        <div class="p-col-12">
+          <span class="p-float-label">
+            <input
+              type="password"
+              pPassword
+              [feedback]="false"
+              formControlName="password"
+            />
+            <label>Contraseña</label>
+          </span>
+        </div>
+        <div class="p-col-12 button-container">
+          <button
+            pButton
+            type="button"
+            label="Entrar"
+            icon="pi pi-user"
+            (click)="onLogin()"
+          ></button>
+        </div>
+      </div>
     </div>
+  </div>
 </form>
