@@ -1,0 +1,27 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@kardex/prime": ["libs/prime/src/index.ts"],
+      "@kardex/auth": ["libs/auth/src/index.ts"],
+      "@kardex/plantilla": ["libs/plantilla/src/index.ts"],
+      "@kardex/layout": ["libs/layout/src/index.ts"],
+      "@kardex/desarrollo": ["libs/desarrollo/src/index.ts"],
+      "@kardex/lovs": ["libs/lovs/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

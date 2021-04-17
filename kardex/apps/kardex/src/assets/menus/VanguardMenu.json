@@ -1,0 +1,800 @@
+{"data":[{
+    "label": "Administracion del Sistema",
+    "icon": "pi pi-fw pi-plus",
+    "items": [
+       {
+          "label": "Parametros",
+          "icon": "pi pi-fw pi-plus",
+          "items": [
+             {
+                "label": "Plaza",
+                "icon": "pi pi-fw pi-plus",
+                "items": [
+                   {
+                      "label": "Pais",
+                      "icon": "pi pi-fw pi-chevron-right",
+                      "routerLink": [
+                        "/administracion/pais"
+                     ]
+                   },
+                   {
+                      "label": "Departamento",
+                      "icon": "pi pi-fw pi-chevron-right",
+                      "routerLink": [
+                         "/administracion/departamento"
+                      ]
+                   },
+                   {
+                      "label": "Ciudad",
+                      "icon": "pi pi-fw pi-chevron-right",
+                      "routerLink": [
+                         "/administracion/ciudad"
+                      ]
+                   },
+                   {
+                      "label": "Regional",
+                      "icon": "pi pi-fw pi-chevron-right",
+                      "routerLink": [
+                         "/administracion/regional"
+                      ]
+                   },
+                   {
+                      "label": "Ciudad Objetivo",
+                      "icon": "pi pi-fw pi-chevron-right",
+                      "routerLink": [
+                         "/administracion/ciudad-objetivo"
+                      ]
+                   },
+                   {
+                      "label": "Ciudad Registro",
+                      "icon": "pi pi-fw pi-chevron-right",
+                      "routerLink": [
+                         "/administracion/ciudad-registro"
+                      ]
+                   },
+                   {
+                      "label": "Empresa",
+                      "icon": "pi pi-fw pi-chevron-right",
+                      "routerLink": [
+                         "/administracion/empresa"
+                      ]
+                   },
+                   {
+                      "label": "Regional por Empresa",
+                      "icon": "pi pi-fw pi-chevron-right",
+                      "routerLink": [
+                         "/administracion/regional-empresa"
+                      ]
+                   }
+                ]
+             },
+             {
+             
+               "label": "Administracion Permisos",
+               "icon": "pi pi-fw pi-plus",
+               "items": [
+                  {
+                     "label": "Modulos",
+                     "icon": "pi pi-fw pi-chevron-right",
+                     "routerLink": [
+                        "/administracion/modulo"
+                     ]
+                  },
+                  {
+                     "label": "Programa",
+                     "icon": "pi pi-fw pi-chevron-right",
+                     "routerLink": [
+                        "/administracion/programa"
+                     ]
+                  },
+                  {
+                     "label": "Perfil",
+                     "icon": "pi pi-fw pi-chevron-right",
+                     "routerLink": [
+                        "/administracion/perfil"
+                     ]
+                  },
+                  {
+                     "label": "Programa por perfil",
+                     "icon": "pi pi-fw pi-chevron-right",
+                     "routerLink": [
+                        "/administracion/programa-perfil"
+                     ]
+                  },
+                  {
+                     "label": "Cargo Usuario",
+                     "icon": "pi pi-fw pi-chevron-right",
+                     "routerLink": [
+                        "/administracion/cargo-usuario"
+                     ]
+                  },
+                  {
+                     "label": "Usuario",
+                     "icon": "pi pi-fw pi-chevron-right",
+                     "routerLink": [
+                        "/administracion/usuario"
+                     ]
+                  }
+               ]
+             }
+          ]
+       }
+    ]
+ },
+ {
+   "label": "Modulo Originacion",
+   "icon": "pi pi-fw pi-plus",
+   "items": [
+      {
+         "label": "Parametros",
+         "icon": "pi pi-fw pi-plus",
+         "items": [
+            {
+               "label": "Persona/Terceros",
+               "icon": "pi pi-fw pi-plus",
+               "items": [
+                  {
+                     "label": "Genero (Sexo)",
+                     "icon": "pi pi-fw pi-chevron-right",
+                     "routerLink": [
+                       "/originacion/genero"
+                    ]
+                  },
+                  {
+                     "label": "Tipo Persona",
+                     "icon": "pi pi-fw pi-chevron-right",
+                     "routerLink": [
+                        "/originacion/tipo-persona"
+                     ]
+                  },
+                  {
+                     "label": "Tipo Identificacion",
+                     "icon": "pi pi-fw pi-chevron-right",
+                     "routerLink": [
+                        "/originacion/tipo-identificacion"
+                     ]
+                  },
+                  {
+                     "label": "Ocupacion",
+                     "icon": "pi pi-fw pi-chevron-right",
+                     "routerLink": [
+                        "/originacion/ocupacion"
+                     ]
+                  },
+                  {
+                     "label": "Estado Civil",
+                     "icon": "pi pi-fw pi-chevron-right",
+                     "routerLink": [
+                        "/originacion/estado-civil"
+                     ]
+                  },
+                  {
+                     "label": "Nivel Estudio",
+                     "icon": "pi pi-fw pi-chevron-right",
+                     "routerLink": [
+                        "/originacion/nivel-estudio"
+                     ]
+                  },
+                  {
+                     "label": "Profesion",
+                     "icon": "pi pi-fw pi-chevron-right",
+                     "routerLink": [
+                        "/originacion/profesion"
+                     ]
+                  },
+                  {
+                     "label": "Tipo Vivienda",
+                     "icon": "pi pi-fw pi-chevron-right",
+                     "routerLink": [
+                        "/originacion/tipo-vivienda"
+                     ]
+                  },
+                  {
+                     "label": "Actividad Economica (CIIU)",
+                     "icon": "pi pi-fw pi-chevron-right",
+                     "routerLink": [
+                        "/originacion/actividad-economica"
+                     ]
+                  },
+                  {
+                     "label": "Parentesco",
+                     "icon": "pi pi-fw pi-chevron-right",
+                     "routerLink": [
+                        "/originacion/parentesco"
+                     ]
+                  },
+                  {
+                     "label": "Nacionalidad",
+                     "icon": "pi pi-fw pi-chevron-right",
+                     "routerLink": [
+                        "/originacion/nacionalidad"
+                     ]
+                  },
+                  {
+                     "label": "Tipo Contrato",
+                     "icon": "pi pi-fw pi-chevron-right",
+                     "routerLink": [
+                        "/originacion/tipo-contrato"
+                     ]
+                  },
+                  {
+                     "label": "Tipo Referencia",
+                     "icon": "pi pi-fw pi-chevron-right",
+                     "routerLink": [
+                        "/originacion/tipo-referencia"
+                     ]
+                  },
+                  {
+                     "label": "Gestion Tercero",
+                     "icon": "pi pi-fw pi-chevron-right",
+                     "routerLink": [
+                        "/originacion/gestion-tercero"
+                     ]
+                  }
+               ]
+            },
+            {
+            
+              "label": "Empresa Transporte",
+              "icon": "pi pi-fw pi-plus",
+              "items": [
+                 {
+                    "label": "Tipo Servicio",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/tipo-servicio"
+                    ]
+                 },
+                 {
+                    "label": "Empresa Transporte",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/empresa-transporte"
+                    ]
+                 },
+                 {
+                    "label": "Tipo Servicio Empresa Transporte",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/tipo-servicio-empresa-transporte"
+                    ]
+                 }
+              ]
+            },
+            {
+            
+              "label": "Persona PEP",
+              "icon": "pi pi-fw pi-plus",
+              "items": [
+                 {
+                    "label": "Tipo PEP",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/tipo-pep"
+                    ]
+                 },
+                 {
+                    "label": "Cargo PEP",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/cargo-pep"
+                    ]
+                 },
+                 {
+                    "label": "Dependencia PEP",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/dependencia-pep"
+                    ]
+                 }
+              ]
+            },
+            {
+            
+              "label": "Garantia",
+              "icon": "pi pi-fw pi-plus",
+              "items": [
+                 {
+                    "label": "Tipo Garantia",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/tipo-garantia"
+                    ]
+                 }
+              ]
+            },
+            {
+            
+              "label": "Scoring",
+              "icon": "pi pi-fw pi-plus",
+              "items": [
+                 {
+                    "label": "Tipo Scoring",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/tipo-scoring"
+                    ]
+                 },
+                 {
+                    "label": "Grupo Variable",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/grupo-variable"
+                    ]
+                 },
+                 {
+                    "label": "Variable",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/variable"
+                    ]
+                 },
+                 {
+                    "label": "Matriz",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/matriz"
+                    ]
+                 }
+              ]
+            },
+            {
+            
+              "label": "Banco",
+              "icon": "pi pi-fw pi-plus",
+              "items": [
+                 {
+                    "label": "Banco",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/banco"
+                    ]
+                 },
+                 {
+                    "label": "Tipo Producto Banco",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/tipo-producto-banco"
+                    ]
+                 },
+                 {
+                    "label": "Tipo Tasa",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/tipo-tasa"
+                    ]
+                 },
+                 {
+                    "label": "Tasa Base",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/tasa-base"
+                    ]
+                 },
+                 {
+                    "label": "Cuenta Banco",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/cuenta-banco"
+                    ]
+                 },
+                 {
+                    "label": "Fondeador",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/fondeador"
+                    ]
+                 },
+                 {
+                    "label": "Dias Corte Fondeador",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/dias-corte-fondeador"
+                    ]
+                 }
+              ]
+            },
+            {
+            
+              "label": "Tasas de Referencia",
+              "icon": "pi pi-fw pi-plus",
+              "items": [
+                 {
+                    "label": "UVT",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/tasa-uvt"
+                    ]
+                 },
+                 {
+                    "label": "Salario Minimo",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/salario-minimo"
+                    ]
+                 },
+                 {
+                    "label": "DTF",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/tasa-dtf"
+                    ]
+                 },
+                 {
+                    "label": "TRM",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/tasa-trm"
+                    ]
+                 }
+              ]
+            },
+            {
+            
+              "label": "Plaza",
+              "icon": "pi pi-fw pi-plus",
+              "items": [
+                 {
+                    "label": "Tipo Fuente",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/tipo-fuente"
+                    ]
+                 },
+                 {
+                    "label": "Medio",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/medio"
+                    ]
+                 },
+                 {
+                    "label": "Fuente",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/fuente"
+                    ]
+                 },
+                 {
+                    "label": "Persona Aliada",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/persona-aliada"
+                    ]
+                 },
+                 {
+                    "label": "Tipo Ejecutivo",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/tipo-ejecutivo"
+                    ]
+                 },
+                 {
+                    "label": "Tipo Fuente por Tipo Ejecutivo",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/tipo-fuente-tipo-ejecutivo"
+                    ]
+                 },
+                 {
+                    "label": "Ejecutivo",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/ejecutivo"
+                    ]
+                 },
+                 {
+                    "label": "Tipo Fuente por Ejecutivo",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/tipo-fuente-ejecutivo"
+                    ]
+                 },
+                 {
+                    "label": "Ciudad Objetivo por Ejecutivo",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/ciudad-objetivo-ejecutivo"
+                    ]
+                 }
+              ]
+            },
+            {
+            
+              "label": "Producto",
+              "icon": "pi pi-fw pi-plus",
+              "items": [
+                 {
+                    "label": "Tipo Producto",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/tipo-producto"
+                    ]
+                 },
+                 {
+                    "label": "Linea Credito",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/linea-credito"
+                    ]
+                 },
+                 {
+                    "label": "Tipo Credito",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/tipo-credito"
+                    ]
+                 },
+                 {
+                    "label": "Perfil Cliente",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/perfil-cliente"
+                    ]
+                 },
+                 {
+                    "label": "Planes de Financiacion",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/plan-financiacion"
+                    ]
+                 },
+                 {
+                    "label": "Base de Financiacion",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/base-financiacion"
+                    ]
+                 },
+                 {
+                    "label": "Tipo Tasa Mes Vencido",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/tipo-tasa-mes-vencido"
+                    ]
+                 },
+                 {
+                    "label": "Documento",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/documento"
+                    ]
+                 },
+                 {
+                    "label": "Documento por producto",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/documento-producto"
+                    ]
+                 },
+                 {
+                    "label": "Producto Comercial",
+                    "icon": "pi pi-fw pi-chevron-right",
+                    "routerLink": [
+                       "/originacion/producto-comercial"
+                    ]
+                 },
+                 {
+                 
+                   "label": "Vehiculo",
+                   "icon": "pi pi-fw pi-plus",
+                   "items": [
+                      {
+                         "label": "Marca",
+                         "icon": "pi pi-fw pi-chevron-right",
+                         "routerLink": [
+                            "/originacion/marca"
+                         ]
+                      },
+                      {
+                         "label": "Familia",
+                         "icon": "pi pi-fw pi-chevron-right",
+                         "routerLink": [
+                            "/originacion/familia"
+                         ]
+                      },
+                      {
+                         "label": "Linea",
+                         "icon": "pi pi-fw pi-chevron-right",
+                         "routerLink": [
+                            "/originacion/linea"
+                         ]
+                      },
+                      {
+                         "label": "Responsable Matricula",
+                         "icon": "pi pi-fw pi-chevron-right",
+                         "routerLink": [
+                            "/originacion/responsable-matricula"
+                         ]
+                      },
+                      {
+                         "label": "Tipo Turno",
+                         "icon": "pi pi-fw pi-chevron-right",
+                         "routerLink": [
+                            "/originacion/tipo-turno"
+                         ]
+                      }
+                   ]
+                 },
+                 {
+                 
+                  "label": "Seguro de Vida",
+                  "icon": "pi pi-fw pi-plus",
+                  "items": [
+                     {
+                        "label": "Tipo Base",
+                        "icon": "pi pi-fw pi-chevron-right",
+                        "routerLink": [
+                           "/originacion/tipo-base"
+                        ]
+                     },
+                     {
+                        "label": "Forma Pago",
+                        "icon": "pi pi-fw pi-chevron-right",
+                        "routerLink": [
+                           "/originacion/forma-pago"
+                        ]
+                     },
+                     {
+                        "label": "Modalidad Pago",
+                        "icon": "pi pi-fw pi-chevron-right",
+                        "routerLink": [
+                           "/originacion/modalidad-pago"
+                        ]
+                     },
+                     {
+                        "label": "Forma Pago Comision Retorno",
+                        "icon": "pi pi-fw pi-chevron-right",
+                        "routerLink": [
+                           "/originacion/forma-pago-comision-retorno"
+                        ]
+                     },
+                     {
+                        "label": "Medio Pago",
+                        "icon": "pi pi-fw pi-chevron-right",
+                        "routerLink": [
+                           "/originacion/medio-pago"
+                        ]
+                     },
+                     {
+                        "label": "Tipo Convenio",
+                        "icon": "pi pi-fw pi-chevron-right",
+                        "routerLink": [
+                           "/originacion/tipo-convenio"
+                        ]
+                     },
+                     {
+                        "label": "Tipo Seguro",
+                        "icon": "pi pi-fw pi-chevron-right",
+                        "routerLink": [
+                           "/originacion/tipo-seguro"
+                        ]
+                     }
+                  ]
+                },
+                {
+                 
+                  "label": "Aseguradora",
+                  "icon": "pi pi-fw pi-plus",
+                  "items": [
+                     {
+                        "label": "Aseguradora",
+                        "icon": "pi pi-fw pi-chevron-right",
+                        "routerLink": [
+                           "/originacion/aseguradora"
+                        ]
+                     },
+                     {
+                        "label": "Tipo Amparos por Aseguradora",
+                        "icon": "pi pi-fw pi-chevron-right",
+                        "routerLink": [
+                           "/originacion/tipo-amparo-aseguradora"
+                        ]
+                     },
+                     {
+                        "label": "Poliza",
+                        "icon": "pi pi-fw pi-chevron-right",
+                        "routerLink": [
+                           "/originacion/poliza"
+                        ]
+                     },
+                     {
+                        "label": "Amparos por Poliza",
+                        "icon": "pi pi-fw pi-chevron-right",
+                        "routerLink": [
+                           "/originacion/amparo-poliza"
+                        ]
+                     },
+                     {
+                        "label": "Exclusiones de Amparos por Poliza",
+                        "icon": "pi pi-fw pi-chevron-right",
+                        "routerLink": [
+                           "/originacion/exclusion-amparo-poliza"
+                        ]
+                     },
+                     {
+                        "label": "Requisitos Seguro",
+                        "icon": "pi pi-fw pi-chevron-right",
+                        "routerLink": [
+                           "/originacion/requisito-seguro"
+                        ]
+                     }
+                  ]
+                }
+              ]
+            },
+            {
+            
+               "label": "Precio",
+               "icon": "pi pi-fw pi-plus",
+               "items": [
+                  {
+                     "label": "Matriz Ingreso Producido",
+                     "icon": "pi pi-fw pi-chevron-right",
+                     "routerLink": [
+                        "/originacion/matriz-ingreso-producido"
+                     ]
+                  },
+                  {
+                     "label": "Matriz Gastos Familiares",
+                     "icon": "pi pi-fw pi-chevron-right",
+                     "routerLink": [
+                        "/originacion/matriz-gasto-familiar"
+                     ]
+                  },
+                  {
+                     "label": "Niveles de Aprobacion",
+                     "icon": "pi pi-fw pi-chevron-right",
+                     "routerLink": [
+                        "/originacion/nivel-aprobacion"
+                     ]
+                  }
+               ]
+             },
+             {
+            
+               "label": "Promocion",
+               "icon": "pi pi-fw pi-plus",
+               "items": [
+                  
+               ]
+             },
+             {
+            
+               "label": "Gestion",
+               "icon": "pi pi-fw pi-plus",
+               "items": [
+                  
+               ]
+             }
+         ]
+      },
+      {
+         "label": "Procesos",
+         "icon": "pi pi-fw pi-plus",
+         "items": [
+            {
+               "label": "Registrar Contacto",
+               "icon": "pi pi-fw pi-chevron-right",
+               "routerLink": [
+                  "/originacion-proceso/registrar-contacto"
+               ]
+            },
+            {
+               "label": "Cargar Información",
+               "icon": "pi pi-fw pi-chevron-right",
+               "routerLink": [
+                  "/originacion-proceso/cargar-informacion"
+               ]
+            }
+         ]
+      }
+   ]
+},
+{
+                     "label": "Prueba",
+                     "icon": "pi pi-fw pi-chevron-right",
+                     "routerLink": [
+                        "/prueba/actividad-economica"
+                     ]
+}]}

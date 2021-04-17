@@ -1,0 +1,40 @@
+
+<kardex-layout-size-detector></kardex-layout-size-detector>
+
+<div class="layout-topbar" *ngIf="size>1"> 
+    <p-toolbar id="toolbar">
+        <div class="p-toolbar-group-left">
+            <a class="logo">
+                <img alt="logo" src="assets/img/logo_blanco.png" />
+            </a>
+        </div>
+        <div class="p-toolbar-group-center">
+        </div>
+        <div class="p-toolbar-group-right" *ngIf="authService.getToken()!=null">
+            <p-avatar icon="pi pi-users" styleClass="p-mr-2" size="large" shape="circle"></p-avatar>
+            <a class="usuario-nombre">
+                {{authService.getCurrentUser().primer_nombre}}
+            </a>
+            
+            <p-tieredMenu #menu [model]="itemsPopup" [popup]="true"></p-tieredMenu>
+            <button #btn type="button" pButton icon="pi pi-bars" class="p-button-rounded p-button-help p-button-text" (click)="menu.toggle($event)" ></button>
+        </div>
+    </p-toolbar>
+</div>
+<div class="layout-topbar" *ngIf="size<2"> 
+    <p-toolbar id="toolbar">
+        <div class="p-toolbar-group-left">
+            <p-slideMenu #menuPrincipal [model]="items" [popup]="true"></p-slideMenu>
+            <button #btn type="button" pButton icon="pi pi-bars" class="p-button-rounded p-button-help p-button-text" (click)="menuPrincipal.toggle($event)" *ngIf="authService.getToken()!=null"></button>  
+        </div>
+        <div class="p-toolbar-group-center">
+            <a class="logo">
+                <img alt="logo" src="assets/img/logo_blanco.png" />
+            </a>
+        </div>
+        <div class="p-toolbar-group-right">
+            <p-tieredMenu #menu [model]="itemsPopup" [popup]="true" *ngIf="authService.getToken()!=null"></p-tieredMenu>
+            <p-avatar icon="pi pi-user" styleClass="p-mr-2" size="large" shape="circle" (click)="menu.toggle($event)" *ngIf="authService.getToken()!=null"></p-avatar>   
+        </div>
+    </p-toolbar>
+</div>

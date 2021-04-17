@@ -1,0 +1,181 @@
+<p-toast></p-toast>
+
+<p-toolbar styleClass="p-mb-2 p-mt-2 p-mr-2">
+  <div>&nbsp;</div>
+  <ng-template pTemplate="right">
+    <!--
+      <button
+        pButton
+        pRipple
+        label=""
+        id="nuevo"
+        icon="pi pi-plus"
+        class="p-button-success p-mr-2"
+        (click)="openNew()"
+      ></button>
+      <p-button
+        pButton
+        pRipple
+        label=""
+        tooltip="Eliminar"
+        icon="pi pi-trash"
+        class="p-button-danger"
+        (click)="deleteSelected()"
+        [disabled]="!selectedRecords || !selectedRecords.length"
+      ></p-button>
+    -->
+    <p-button
+      pRipple
+      icon="pi pi-plus"
+      styleClass="p-button-success p-mr-2"
+      (click)="openNew()"
+      label="Agregar"
+    ></p-button>
+    <p-button
+      pRipple
+      icon="pi pi-trash"
+      styleClass="p-button-danger"
+      (click)="deleteSelected()"
+      label="Eliminar"
+      [disabled]="!selectedRecords || !selectedRecords.length"
+    ></p-button>
+  </ng-template>
+  <!--
+    <ng-template pTemplate="right">
+      <p-fileUpload
+        mode="basic"
+        accept="image/*"
+        [maxFileSize]="1000000"
+        label="Importar"
+        chooseLabel="Importar"
+        class="p-mr-2 p-d-inline-block"
+      ></p-fileUpload>
+      <button pButton pRipple label="Exportar" icon="pi pi-upload" class="p-button-help"></button>
+    </ng-template>
+  -->
+</p-toolbar>
+
+<div class="card p-mt-2 p-mr-2">
+  <p-table
+    #dt
+    [value]="data"
+    [rows]="10"
+    [paginator]="true"
+    globalFilterFields="filters"
+    [(selection)]="selectedRecords"
+    [rowHover]="true"
+    dataKey="id"
+    [responsive]="true"
+    currentPageReportTemplate="Viendo {first} a {last} de {totalRecords} registros"
+    [showCurrentPageReport]="true"
+    styleClass="p-datatable-responsive-kardex"
+  >
+    <ng-template pTemplate="caption">
+      <div class="p-d-flex p-ai-center p-jc-between">
+        <h5 class="p-m-0">Administrar {{ plural }}</h5>
+        <span class="p-input-icon-left">
+          <i class="pi pi-search"></i>
+          <input
+            pInputText
+            type="text"
+            (input)="dt.filterGlobal($event.target.value, 'contains')"
+            placeholder="Filtrar..."
+          />
+        </span>
+      </div>
+    </ng-template>
+
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th *ngFor="let col of field_show">
+          {{ col.header }}
+        </th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="width: 3rem">
+          <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+        </th>
+        <th
+          *ngFor="let item of field_show"
+          [pSortableColumn]="item.index"
+          class="p-column-title"
+        >
+          {{ item.header }} <p-sortIcon [field]="item.index"></p-sortIcon>
+        </th>
+
+        <th></th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-record>
+      <tr>
+        <td>
+          <p-tableCheckbox [value]="record"></p-tableCheckbox>
+        </td>
+
+        <td *ngFor="let item of field_show">
+          <span class="p-column-title">{{ item.header }}</span>
+          {{ record[item.index] }}
+        </td>
+
+        <td style="text-align-last: right">
+          <button
+            pButton
+            pRipple
+            icon="pi pi-pencil"
+            class="p-button-rounded p-button-success p-mr-2"
+            (click)="edit(record)"
+          ></button>
+          <button
+            pButton
+            pRipple
+            icon="pi pi-trash"
+            class="p-button-rounded p-button-warning"
+            (click)="delete(record)"
+          ></button>
+        </td>
+      </tr>
+    </ng-template>
+    <!--ng-template pTemplate="summary">
+      <div class="p-d-flex p-ai-center p-jc-between">Total de {{ data ? data.length : 0 }} registros.</div>
+    </ng-template-->
+  </p-table>
+</div>
+
+<p-dialog
+  [(visible)]="dialog"
+  [style]="{ width: '750px' }"
+  header="{{ etiqueta }} {{ singular }}"
+  [modal]="true"
+  styleClass="p-fluid"
+>
+  <ng-template pTemplate="content"> </ng-template>
+  <ng-template pTemplate="content">
+    <ng-container *ngTemplateOutlet="insertTemplate"> </ng-container>
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+    <button
+      pButton
+      pRipple
+      label="Guardar"
+      id="save"
+      icon="pi pi-check"
+      class="p-button-text"
+      (click)="save()"
+    ></button>
+    <button
+      pButton
+      pRipple
+      label="Cancelar"
+      icon="pi pi-times"
+      class="p-button-text"
+      (click)="hideDialog()"
+    ></button>
+  </ng-template>
+</p-dialog>
+
+<p-confirmDialog [style]="{ width: '450px' }"></p-confirmDialog>
