@@ -47,66 +47,18 @@ export class AuthLoginComponent implements OnInit {
   onSubmit(form: Auth): void {
     this.authService.loginUser(form).subscribe(
       (data) => {
-        this.authService.setUser(data.currentUser);
-        this.authService.setMenu(data.menu);
-        this.authService.setCaja(data.cashRegisterCode);
-        const token = data.token;
+        this.authService.setUser(data.user);
+        const token = data.id;
         this.authService.setToken(token);
-        if (data.cashRegisterCode == 3) {
-          this.openDialogCaja();
-        } else if (data.cashRegisterCode == 2) {
-          this.openDialogInicial();
-        } else {
-          this.router.navigate(['']);
-        }
         this.msgOk();
       },
       (error) => this.msgError(error)
     );
   }
 
-  openDialogCaja() {
-    this.dialogCaja = true;
-  }
-
-  hideDialogCaja() {
-    this.dialogCaja = false;
-  }
-
-  openDialogInicial() {
-    this.dialogInicial = true;
-  }
-
-  hideDialogInicial() {
-    this.dialogInicial = false;
-  }
-  iniciarCaja() {
-    this.inicialForm.markAllAsTouched();
-    this.inicialForm.updateValueAndValidity();
-    if (this.inicialForm.valid) {
-      const initialValue = this.inicialForm.value.initialValue;
-      this.authService.iniciarCaja(initialValue).then((data) => {
-        this.respuesta = data;
-        this.authService.setCaja(1);
-        this.router.navigate(['']);
-      });
-    }
-  }
-
   initForm(): void {
     this.inicialForm = new FormGroup({
       initialValue: new FormControl('0', Validators.required),
     });
-  }
-
-  respuestaCaja(respuesta: number) {
-    this.hideDialogCaja();
-    if (respuesta === 1) {
-      this.router.navigate(['']);
-    } else if (respuesta === 2) {
-      this.openDialogInicial();
-    } else {
-      this.authService.logoutUser();
-    }
   }
 }

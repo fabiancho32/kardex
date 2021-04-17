@@ -11,7 +11,7 @@ import { PrimeNGConfig } from 'primeng/api';
 import { AppComponent } from './app.component';
 
 @Component({
-  selector: 'app-main',
+  selector: 'kardex-app-main',
   templateUrl: './app.main.component.html',
 })
 export class AppMainComponent implements AfterViewInit, OnDestroy {
@@ -35,7 +35,7 @@ export class AppMainComponent implements AfterViewInit, OnDestroy {
 
   token: string;
 
-  respuesta: any;
+  respuesta: number;
 
   constructor(
     public renderer: Renderer2,
@@ -49,14 +49,16 @@ export class AppMainComponent implements AfterViewInit, OnDestroy {
 
   getStatus() {
     this.token = this.authService.getToken();
-    this.authService.statusLogin(this.token).then((data) => {
-      this.respuesta = data;
-      this.validarRespuesta();
-    });
+    if (this.token != null && this.token != '') {
+      this.respuesta = 1;
+    } else {
+      this.respuesta = 0;
+    }
+    this.validarRespuesta();
   }
 
   validarRespuesta() {
-    if (this.respuesta.success != '1') {
+    if (this.respuesta != 1) {
       this.router.navigate(['/login']);
     }
   }

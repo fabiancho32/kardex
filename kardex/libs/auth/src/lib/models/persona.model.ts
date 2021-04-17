@@ -1,21 +1,7 @@
 export interface Persona {
-  persona_id_persona?:number;
-  activo?:number;
-  rol_id_rol?:number;
-  id_persona?:number;
-  id_ciudad?:number;
-  id_sexo?:number;
-  primer_nombre?:string;
-  segundo_nombre?:string;
-  primer_apellido?:string;
-  segundo_apellido?:string;
-  fecha_nacimiento?:Date;
-  telefono?:string;
-  correo?:string;
-  direccion?:string;
-  fecha_creacion?:Date;
-  fecha_modificacion?:Date;
-  url_imagen?:string;
-  tipo_identificacion?:string;
-  documento?:string;
+  realm?: string;
+  username?: string;
+  email?: string;
+  emailVerified?: string;
+  id?: number;
 }

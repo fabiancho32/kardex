@@ -15,7 +15,7 @@ import { MessageService } from 'primeng/api';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
-  respuesta: any;
+  respuesta: number;
 
   token: string;
 
@@ -28,28 +28,31 @@ export class LoginComponent implements OnInit {
     public messageService: MessageService
   ) {
     this.initForm();
-    //this.getStatus();
+    this.getStatus();
   }
 
   getStatus() {
     this.token = this.authService.getToken();
-    this.authService.statusLogin(this.token).then((data) => {
-      this.respuesta = data;
-      this.validarRespuesta();
-    });
+    if (this.token != null && this.token != '') {
+      this.respuesta = 1;
+    } else {
+      this.respuesta = 0;
+    }
+    this.validarRespuesta();
   }
 
   validarRespuesta() {
-    console.log('respuesta', this.respuesta.success);
-    if (this.respuesta.success == '1') {
+    console.log('Respuesta ', this.respuesta);
+    if (this.respuesta == 1) {
+      console.log('OK');
       this.router.navigate(['/']);
     }
   }
 
   initForm(): void {
     this.loginForm = new FormGroup({
-      user: new FormControl('89008314', Validators.required),
-      password: new FormControl('89008314', Validators.required),
+      user: new FormControl('fgarcia@gmail.com', Validators.required),
+      password: new FormControl('123456', Validators.required),
     });
   }
 

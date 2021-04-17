@@ -52,7 +52,7 @@
     "jquery": "^3.6.0",
     "primeflex": "^2.0.0",
     "primeicons": "^4.1.0",
-    "primeng": "^11.3.1",
+    "primeng": "^11.3.2",
     "rxjs": "~6.6.3",
     "satellizer": "^0.15.5",
     "tslib": "^2.0.0",

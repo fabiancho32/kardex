@@ -17,7 +17,7 @@ export class AuthService {
 
   loginUser(usuario: Auth): Observable<any> {
     const { email, password } = usuario;
-    const url_login = '/login';
+    const url_login = 'http://localhost:3000/api/Users/login?include=user';
     return this.http
       .post<Auth>(
         url_login,
@@ -55,36 +55,11 @@ export class AuthService {
     }
   }
 
-  getMenu(): any {
-    const menu_string = localStorage.getItem('menuUser');
-    if (!isNullOrUndefined(menu_string)) {
-      const user: any = JSON.parse(menu_string);
-      return user;
-    } else {
-      return null;
-    }
-  }
-
-  setMenu(menu: any): void {
-    const menu_string = JSON.stringify(menu);
-    localStorage.setItem('menuUser', menu_string);
-  }
-
-  setCaja(caja: any): void {
-    return localStorage.setItem('cajaUser', caja);
-  }
-
-  getCaja() {
-    return localStorage.getItem('cajaUser');
-  }
-
   logoutUser() {
     const token = localStorage.getItem('token');
-    const url_logout = `api/logout?token=${token}`;
+    const url_logout = `http://localhost:3000/api/Users/logout?access_token=${token}`;
     localStorage.removeItem('token');
     localStorage.removeItem('currentUser');
-    localStorage.removeItem('menuUser');
-    localStorage.removeItem('cajaUser');
     window.location.reload();
     return this.http.post<Auth>(url_logout, {
       headers: this.headers,
@@ -93,20 +68,9 @@ export class AuthService {
   }
 
   statusLogin(token: string) {
-    const url_status = `/api/status?token=${token}`;
+    const url_status = `http://localhost:3000/api/status?token=${token}`;
     return this.http
       .post<any>(url_status, '', {
-        headers: this.headers,
-        withCredentials: true,
-      })
-      .toPromise()
-      .then((res) => <any>res);
-  }
-
-  iniciarCaja(initialValue: number) {
-    const url_caja = `/api/cashregister/open?initialValue=${initialValue}`;
-    return this.http
-      .post<any>(url_caja, '', {
         headers: this.headers,
         withCredentials: true,
       })

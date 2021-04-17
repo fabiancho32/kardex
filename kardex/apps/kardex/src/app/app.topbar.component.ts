@@ -236,20 +236,6 @@ import { AppMainComponent } from './app.main.component';
         </li>
       </ul>
     </div>
-    <div class="card">
-      <h5>Alerta</h5>
-      <p-confirmDialog
-        [style]="{ width: '50vw' }"
-        [baseZIndex]="10000"
-        rejectButtonStyleClass="p-button-text"
-      ></p-confirmDialog>
-      <p-button
-        (click)="confirmar()"
-        icon="pi pi-check"
-        label="Confirmar"
-        styleClass="p-mr-2"
-      ></p-button>
-    </div>
   `,
 })
 export class AppTopbarComponent {
@@ -296,11 +282,6 @@ export class AppTopbarComponent {
   }
 
   cerrarSesion() {
-    const caja = this.authService.getCaja();
-    if (caja == '1') {
-      this.confirmar();
-    } else {
-      this.authService.logoutUser();
-    }
+    this.authService.logoutUser();
   }
 }
