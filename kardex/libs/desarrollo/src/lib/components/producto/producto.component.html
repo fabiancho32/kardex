@@ -158,13 +158,32 @@
   styleClass="p-fluid"
 >
   <ng-template pTemplate="content">
-    <img
+    <!-- <img
       [src]="'assets/img/productos/' + product.img"
       [alt]="product.img"
       class="product-image"
       width="100"
       *ngIf="product.img"
     />
+    -->
+    <div class="p-field">
+      <label for="img">Imagen</label>
+      <p-fileUpload
+        name="myfile[]"
+        customUpload="true"
+        (uploadHandler)="onUpload($event)"
+        accept="image/*"
+        maxFileSize="1000000"
+      >
+        <ng-template pTemplate="content">
+          <ul *ngIf="uploadedFiles.length">
+            <li *ngFor="let file of uploadedFiles">
+              {{ file.name }} - {{ file.size }} bytes
+            </li>
+          </ul>
+        </ng-template>
+      </p-fileUpload>
+    </div>
     <div class="p-field">
       <label for="nombre">Nombre</label>
       <input

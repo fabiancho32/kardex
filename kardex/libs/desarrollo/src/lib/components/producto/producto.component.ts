@@ -1,3 +1,5 @@
+import { Archivo } from './../../models/archivo.model';
+import { FileService } from './../../services/file.service';
 import { Categoria } from './../../models/categoria.model';
 import { Estado } from './../../models/estado.model';
 import { MessageService, ConfirmationService } from 'primeng/api';
@@ -35,10 +37,17 @@ export class ProductoComponent implements OnInit {
 
   cantidad = 0;
 
+  uploadedFiles: any[] = [];
+
+  archivo: Archivo;
+
+  file: any;
+
   constructor(
     private productoService: ProductoService,
     private messageService: MessageService,
-    private confirmationService: ConfirmationService
+    private confirmationService: ConfirmationService,
+    private fileService: FileService
   ) {
     this.statuses = [
       { label: 'N/A', value: 0 },
@@ -131,6 +140,9 @@ export class ProductoComponent implements OnInit {
     if (this.product.nombre.trim()) {
       if (this.product.id) {
         this.products[this.findIndexById(this.product.id)] = this.product;
+        if (this.product.img == '' || this.product.img == undefined) {
+          this.product.img = 'producto.jpg';
+        }
         this.productoService.updateProducto(this.product).subscribe();
         this.messageService.add({
           severity: 'success',
@@ -139,11 +151,16 @@ export class ProductoComponent implements OnInit {
           life: 3000,
         });
       } else {
+        this.product.img = this.file.name;
+        console.log('file', this.file);
         if (this.product.img == '' || this.product.img == undefined) {
           this.product.img = 'producto.jpg';
         }
         this.products.push(this.product);
-        this.productoService.saveProducto(this.product).subscribe();
+        this.productoService.saveProducto(this.product).subscribe((data) => {
+          console.log(data);
+          this.subirImg();
+        });
         this.messageService.add({
           severity: 'success',
           summary: 'Éxito',
@@ -182,5 +199,46 @@ export class ProductoComponent implements OnInit {
       (status) => status.value === value
     );
     return resultadoEstados.label;
+  }
+
+  onUpload(event) {
+    //event.files == files to upload
+    this.file = event.files[0];
+    this.product.img = this.file.name;
+  }
+
+  subirImg() {
+    this.archivo = {};
+    this.archivo.nombre = this.file.name;
+    this.archivo.nombreArchivo = this.file.name;
+    if (this.file) {
+      const reader = new FileReader();
+      reader.onload = this._handleReaderLoaded.bind(this);
+      reader.readAsBinaryString(this.file);
+    }
+  }
+
+  _handleReaderLoaded(readerEvent) {
+    const binaryString = readerEvent.target.result;
+    this.archivo.base64textString = btoa(binaryString);
+    this.upload();
+  }
+
+  upload() {
+    this.fileService.uploadFile(this.archivo).subscribe((datos) => {
+      if (datos['resultado'] == 'OK') {
+        this.messageService.add({
+          severity: 'info',
+          summary: 'File Uploaded',
+          detail: '',
+        });
+      } else {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'File NO Uploaded',
+          detail: '',
+        });
+      }
+    });
   }
 }

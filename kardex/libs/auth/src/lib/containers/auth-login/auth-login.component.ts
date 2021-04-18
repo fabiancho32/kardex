@@ -52,6 +52,7 @@ export class AuthLoginComponent implements OnInit {
         const token = data.id;
         this.authService.setToken(token);
         this.msgOk();
+        window.location.reload();
       },
       (error) => this.msgError(error)
     );
