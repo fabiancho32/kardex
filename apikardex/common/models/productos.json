@@ -19,6 +19,10 @@
       "type": "string",
       "required": true
     },
+    "categoria": {
+      "type": "string",
+      "required": true
+    },
     "valor": {
       "type": "number",
       "required": true
@@ -35,7 +39,7 @@
       "required": true
     },
     "disponibles": {
-      "type": "string"
+      "type": "number"
     },
     "estado": {
       "type": "number"

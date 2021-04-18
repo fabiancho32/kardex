@@ -33,8 +33,9 @@ export class AuthLoginComponent implements OnInit {
     this.messageService.add({
       severity: 'error',
       summary: 'Error',
-      detail: 'Por favor revise los datos ingresados e intente nuevamente',
+      detail: 'Por favor revise los datos ingresados e intente nuevamente ',
     });
+    console.warn(error);
   }
   msgOk() {
     this.messageService.add({

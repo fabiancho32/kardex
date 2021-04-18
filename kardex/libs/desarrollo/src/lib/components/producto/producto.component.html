@@ -4,24 +4,21 @@
   <div class="p-col-12 p-md-12 p-lg-4">
     <div class="p-grid p-nogutter card overview-box overview-box-1">
       <span class="overview-box-name">Productos Vendidos</span>
-      <span class="overview-box-count">150</span>
-      <span class="overview-box-badge">+30%</span>
+      <span class="overview-box-count">{{ this.vendidos }}</span>
       <img src="assets/layout/images/dashboard/chart-1.svg" />
     </div>
   </div>
   <div class="p-col-12 p-md-12 p-lg-4">
     <div class="p-grid p-nogutter card overview-box overview-box-2">
-      <span class="overview-box-name">Productos en Stock</span>
-      <span class="overview-box-count">532</span>
-      <span class="overview-box-badge">+45%</span>
+      <span class="overview-box-name">Productos Disponibles</span>
+      <span class="overview-box-count">{{ this.disponibles }}</span>
       <img src="assets/layout/images/dashboard/chart-2.svg" />
     </div>
   </div>
   <div class="p-col-12 p-md-12 p-lg-4">
     <div class="p-grid p-nogutter card overview-box overview-box-3">
-      <span class="overview-box-name">Productos sin Stock</span>
-      <span class="overview-box-count">640</span>
-      <span class="overview-box-badge">-75%</span>
+      <span class="overview-box-name">Productos Totales</span>
+      <span class="overview-box-count">{{ this.cantidad }}</span>
       <img src="assets/layout/images/dashboard/chart-3.svg" />
     </div>
   </div>
@@ -56,12 +53,7 @@
     [value]="products"
     [rows]="10"
     [paginator]="true"
-    [globalFilterFields]="[
-      'name',
-      'country.name',
-      'representative.name',
-      'status'
-    ]"
+    [globalFilterFields]="['nombre']"
     [(selection)]="selectedProducts"
     [rowHover]="true"
     dataKey="id"
@@ -87,8 +79,8 @@
         <th style="width: 3rem">
           <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
         </th>
-        <th pSortableColumn="name">
-          Nombre <p-sortIcon field="name"></p-sortIcon>
+        <th pSortableColumn="nombre">
+          Nombre <p-sortIcon field="nombre"></p-sortIcon>
         </th>
         <th>Imagen</th>
         <th pSortableColumn="price">
@@ -111,33 +103,25 @@
         <td>
           <p-tableCheckbox [value]="product"></p-tableCheckbox>
         </td>
-        <td>{{ product.name }}</td>
+        <td>{{ product.nombre }}</td>
         <td>
           <img
-            [src]="'assets/showcase/images/demo/product/' + product.image"
-            [alt]="product.name"
+            [src]="'assets/img/productos/' + product.img"
+            [alt]="product.nombre"
             width="100"
             class="p-shadow-4"
           />
         </td>
-        <td>{{ product.price | currency: 'COP' }}</td>
-        <td>{{ product.category }}</td>
-        <td>
-          <p-rating
-            [ngModel]="product.rating"
-            [readonly]="true"
-            [cancel]="false"
-          ></p-rating>
-        </td>
+        <td>{{ product.valor | currency: 'COP' }}</td>
+        <td>{{ getCategoria(product.categoria) }}</td>
+        <td>{{ product.disponibles }}</td>
         <td>
           <span
             [class]="
               'product-badge status-' +
-              (product.inventoryStatus
-                ? product.inventoryStatus.toLowerCase()
-                : '')
+              (product.estado ? getEstado(product.estado).toLowerCase() : '')
             "
-            >{{ product.inventoryStatus }}</span
+            >{{ getEstado(product.estado) }}</span
           >
         </td>
         <td>
@@ -175,22 +159,23 @@
 >
   <ng-template pTemplate="content">
     <img
-      [src]="'assets/showcase/images/demo/product/' + product.image"
-      [alt]="product.image"
+      [src]="'assets/img/productos/' + product.img"
+      [alt]="product.img"
       class="product-image"
-      *ngIf="product.image"
+      width="100"
+      *ngIf="product.img"
     />
     <div class="p-field">
-      <label for="name">Nombre</label>
+      <label for="nombre">Nombre</label>
       <input
         type="text"
         pInputText
-        id="name"
-        [(ngModel)]="product.name"
+        id="nombre"
+        [(ngModel)]="product.nombre"
         required
         autofocus
       />
-      <small class="p-error" *ngIf="submitted && !product.name"
+      <small class="p-error" *ngIf="submitted && !product.nombre"
         >Nombre es requerido.</small
       >
     </div>
@@ -199,7 +184,7 @@
       <textarea
         id="description"
         pInputTextarea
-        [(ngModel)]="product.description"
+        [(ngModel)]="product.descripcion"
         required
         rows="3"
         cols="20"
@@ -208,7 +193,7 @@
     <div class="p-field">
       <label for="inventoryStatus">Estado de inventario</label>
       <p-dropdown
-        [(ngModel)]="product.inventoryStatus"
+        [(ngModel)]="product.estado"
         inputId="inventoryStatus"
         [options]="statuses"
         placeholder="Select"
@@ -227,38 +212,42 @@
         <div class="p-field-radiobutton p-col-6">
           <p-radioButton
             id="category1"
-            name="category"
-            value="Accessories"
-            [(ngModel)]="product.category"
+            name="categoria"
+            value="0"
+            inputId="0"
+            [(ngModel)]="product.categoria"
           ></p-radioButton>
-          <label for="category1">Accesorios</label>
+          <label for="category1">N/A</label>
         </div>
         <div class="p-field-radiobutton p-col-6">
           <p-radioButton
             id="category2"
-            name="category"
-            value="Clothing"
-            [(ngModel)]="product.category"
+            name="categoria"
+            value="1"
+            inputId="1"
+            [(ngModel)]="product.categoria"
           ></p-radioButton>
-          <label for="category2">Ropa</label>
+          <label for="category2">Vasos</label>
         </div>
         <div class="p-field-radiobutton p-col-6">
           <p-radioButton
             id="category3"
-            name="category"
-            value="Electronics"
-            [(ngModel)]="product.category"
+            name="categoria"
+            value="2"
+            inputId="2"
+            [(ngModel)]="product.categoria"
           ></p-radioButton>
-          <label for="category3">Electronica</label>
+          <label for="category3">Mochilas</label>
         </div>
         <div class="p-field-radiobutton p-col-6">
           <p-radioButton
             id="category4"
-            name="category"
-            value="Fitness"
-            [(ngModel)]="product.category"
+            name="categoria"
+            value="3"
+            inputId="3"
+            [(ngModel)]="product.categoria"
           ></p-radioButton>
-          <label for="category4">Fitness</label>
+          <label for="category4">Ropa</label>
         </div>
       </div>
     </div>
@@ -268,27 +257,44 @@
         <label for="price">Precio</label>
         <p-inputNumber
           id="price"
-          [(ngModel)]="product.price"
+          [(ngModel)]="product.valor"
           mode="currency"
           currency="COP"
           locale="es-CO"
         ></p-inputNumber>
       </div>
       <div class="p-field p-col">
-        <label for="quantity">Cantidad</label>
+        <label for="cantidad">Cantidad</label>
         <p-inputNumber
           id="quantity"
-          [(ngModel)]="product.quantity"
+          [(ngModel)]="product.cantidad"
         ></p-inputNumber>
       </div>
     </div>
+    <div class="p-formgrid p-grid">
+      <div class="p-field p-col">
+        <label for="vendidos">Vendidos</label>
+        <p-inputNumber
+          id="vendidos"
+          [(ngModel)]="product.vendidos"
+        ></p-inputNumber>
+      </div>
+      <div class="p-field p-col">
+        <label for="disponibles">Disponibles</label>
+        <p-inputNumber
+          id="disponibles"
+          [(ngModel)]="product.disponibles"
+        ></p-inputNumber>
+      </div>
+    </div>
+    {{ product | json }}
   </ng-template>
 
   <ng-template pTemplate="footer">
     <button
       pButton
       pRipple
-      label="Cancel"
+      label="Cancelar"
       icon="pi pi-times"
       class="p-button-text"
       (click)="hideDialog()"
@@ -296,7 +302,7 @@
     <button
       pButton
       pRipple
-      label="Save"
+      label="Guardar"
       icon="pi pi-check"
       class="p-button-text"
       (click)="saveProduct()"

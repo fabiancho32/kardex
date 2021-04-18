@@ -2,7 +2,7 @@ import { AuthService } from '@kardex/auth';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-menu',
+  selector: 'kardex-app-menu',
   template: `
     <div class="menu-scroll-content">
       <ul class="navigation-menu">

@@ -1,3 +1,4 @@
+import { ProductoCrudComponent } from './../../../../libs/desarrollo/src/lib/containers/producto-crud/producto-crud.component';
 import { AuthLoginComponent, CanActivateViaAuthGuard } from '@kardex/auth';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -60,7 +61,7 @@ import { AppHelpComponent } from './pages/app.help.component';
               loadChildren: () =>
                 import('@kardex/auth').then((module) => module.AuthModule),
             },
-            { path: '', component: DashboardDemoComponent },
+            { path: '', component: ProductoCrudComponent },
             { path: 'uikit/formlayout', component: FormLayoutDemoComponent },
             { path: 'uikit/floatlabel', component: FloatLabelDemoComponent },
             {
