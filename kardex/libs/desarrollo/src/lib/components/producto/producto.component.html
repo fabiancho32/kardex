@@ -59,6 +59,7 @@
     dataKey="id"
     currentPageReportTemplate="Viendo {first} a {last} de un total de {totalRecords} entradas"
     [showCurrentPageReport]="true"
+    styleClass="p-datatable-responsive-demo"
   >
     <ng-template pTemplate="caption">
       <div class="p-d-flex p-ai-center p-jc-between">
@@ -128,8 +129,15 @@
           <button
             pButton
             pRipple
-            icon="pi pi-pencil"
+            icon="pi pi-dollar"
             class="p-button-rounded p-button-success p-mr-2"
+            (click)="cantidadProduct(product)"
+          ></button>
+          <button
+            pButton
+            pRipple
+            icon="pi pi-pencil"
+            class="p-button-rounded p-button-blue p-mr-2"
             (click)="editProduct(product)"
           ></button>
           <button
@@ -306,7 +314,6 @@
         ></p-inputNumber>
       </div>
     </div>
-    {{ product | json }}
   </ng-template>
 
   <ng-template pTemplate="footer">
@@ -329,4 +336,65 @@
   </ng-template>
 </p-dialog>
 
+<p-dialog
+  [(visible)]="productCantidadDialog"
+  [style]="{ width: '450px' }"
+  header="Inventario Producto"
+  [modal]="true"
+  styleClass="p-fluid"
+>
+  <ng-template pTemplate="content">
+    <div class="p-formgrid p-grid">
+      <div class="p-field p-col">
+        <label for="cantidad">Cantidad</label>
+        <p-inputNumber
+          id="quantity"
+          [(ngModel)]="product.cantidad"
+          [showButtons]="true"
+          (ngModelChange)="modificarDisponibles($event)"
+          [min]="0"
+          [max]="9999"
+        ></p-inputNumber>
+      </div>
+      <div class="p-field p-col">
+        <label for="vendidos">Vendidos</label>
+        <p-inputNumber
+          id="vendidos"
+          [(ngModel)]="product.vendidos"
+          [showButtons]="true"
+          (ngModelChange)="modificarDisponibles($event)"
+          [min]="0"
+          [max]="9999"
+        ></p-inputNumber>
+      </div>
+      <div class="p-field p-col">
+        <label for="disponibles">Disponibles</label>
+        <p-inputNumber
+          id="disponibles"
+          [(ngModel)]="product.disponibles"
+          disabled
+        ></p-inputNumber>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+    <button
+      pButton
+      pRipple
+      label="Cancelar"
+      icon="pi pi-times"
+      class="p-button-text"
+      (click)="hideDialog()"
+    ></button>
+    <button
+      pButton
+      pRipple
+      label="Guardar"
+      icon="pi pi-check"
+      class="p-button-text"
+      (click)="saveProduct()"
+    ></button>
+  </ng-template>
+</p-dialog>
 <p-confirmDialog [style]="{ width: '450px' }"></p-confirmDialog>

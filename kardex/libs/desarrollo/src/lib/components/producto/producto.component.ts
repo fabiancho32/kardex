@@ -5,15 +5,18 @@ import { Estado } from './../../models/estado.model';
 import { MessageService, ConfirmationService } from 'primeng/api';
 import { ProductoService } from './../../services/producto.service';
 import { Producto } from './../../models/producto.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'kardex-desarrollo-producto',
   templateUrl: './producto.component.html',
   styleUrls: ['./producto.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class ProductoComponent implements OnInit {
   productDialog: boolean;
+
+  productCantidadDialog: boolean;
 
   products: Producto[];
 
@@ -110,6 +113,11 @@ export class ProductoComponent implements OnInit {
     this.productDialog = true;
   }
 
+  cantidadProduct(product: Producto) {
+    this.product = { ...product };
+    this.productCantidadDialog = true;
+  }
+
   deleteProduct(product: Producto) {
     this.confirmationService.confirm({
       message: '¿Estás segura de que quieres eliminar ' + product.nombre + '?',
@@ -171,6 +179,7 @@ export class ProductoComponent implements OnInit {
 
       this.products = [...this.products];
       this.productDialog = false;
+      this.productCantidadDialog = false;
       this.product = {};
     }
   }
@@ -240,5 +249,19 @@ export class ProductoComponent implements OnInit {
         });
       }
     });
+  }
+
+  modificarDisponibles(e) {
+    console.log('entre', e);
+    if (this.product.cantidad - this.product.vendidos < 0) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Disponibles no puede ser un valor negativo',
+        detail: '',
+      });
+      this.product.cantidad = 0;
+    } else {
+      this.product.disponibles = this.product.cantidad - this.product.vendidos;
+    }
   }
 }

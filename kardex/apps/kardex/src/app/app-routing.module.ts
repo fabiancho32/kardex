@@ -103,11 +103,9 @@ import { AppHelpComponent } from './pages/app.help.component';
             { path: 'documentation', component: DocumentationComponent },
           ],
         },
-        { path: 'error', component: AppErrorComponent },
         { path: 'access', component: AppAccessdeniedComponent },
         { path: 'notfound', component: AppNotfoundComponent },
         { path: 'login', component: AuthLoginComponent },
-        { path: '**', redirectTo: '/notfound' },
       ],
       { scrollPositionRestoration: 'enabled' }
     ),

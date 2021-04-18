@@ -54,7 +54,9 @@ export class AuthLoginComponent implements OnInit {
         this.msgOk();
         window.location.reload();
       },
-      (error) => this.msgError(error)
+      (error) => {
+        this.msgError(error);
+      }
     );
   }
 
