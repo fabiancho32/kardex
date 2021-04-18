@@ -159,8 +159,10 @@ export class ProductoComponent implements OnInit {
           life: 3000,
         });
       } else {
-        this.product.img = this.file.name;
-        console.log('file', this.file);
+        if (this.file) {
+          this.product.img = this.file.name;
+          console.log('file', this.file);
+        }
         if (this.product.img == '' || this.product.img == undefined) {
           this.product.img = 'producto.jpg';
         }

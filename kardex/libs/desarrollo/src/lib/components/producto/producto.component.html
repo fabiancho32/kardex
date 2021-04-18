@@ -178,6 +178,9 @@
       <label for="img">Imagen</label>
       <p-fileUpload
         name="myfile[]"
+        chooseLabel="Seleccionar"
+        uploadLabel="Confirmar"
+        cancelLabel="Eliminar"
         customUpload="true"
         (uploadHandler)="onUpload($event)"
         accept="image/*"
