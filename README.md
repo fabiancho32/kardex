@@ -4,7 +4,7 @@ _Proyecto de kardex/inventario para prueba tecnica de la empresa TODO1_
 
 ## Comenzando 🚀
 
-_ Este proyecto fue realizado en Angular versión 11, Loopback versión 3, Nx y PrimeNG en su ultima versión._
+_Este proyecto fue realizado en Angular versión 11, Loopback versión 3, Nx y PrimeNG en su ultima versión._
 
 Mira **Deployment** para conocer como desplegar el proyecto.
 
